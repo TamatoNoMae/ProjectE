@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="../css/item.css">
+</head>
+<body>
+  <div id="main">
+    <div class="bg-gray">
+        <div class="ui-layout">
+            <!-- 面包屑导航 -->
+            <div class="crumb-box">
+              <el-breadcrumb separator-class="el-icon-arrow-right">
+                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+                <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+                <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+              </el-breadcrumb>
+            </div>
+          
+            <div class="item-summary">
+              <el-row >
+                <el-col :span="2.9">
+                  <!--缩略图 图片来源随便找的 -->
+                  <div class="item-thumbnail" @mouseover="showPoint" @mouseleave ="movePoint">
+                    <img src="../img/up-point.ico" class="up-point" @click="slideDown" :style="pointStyle">
+                    <img src="../img/down-point.ico" class="down-point" @click="slideDown" :style="pointStyle">
+                    <div class="list" :style="listStyle" >
+                        <img src="http://mallpcdn.masadora.net/b6234363de8080f630e985f561624beafdeb6e3d/g48374_01.jpg!wm1480t" action="切换封面图" class="active">
+                        <img src="http://mallpcdn.masadora.net/a6b89add91bc5e5565d68d2b73ceab460f558e7b/000346672_01.jpg!wm1480t" action="切换封面图" class="">
+                        <img src="http://mallpcdn.masadora.net/076c970402857b170189d445ed145d22d4dcd90a/000346689_01.jpg!wm1480t" action="切换封面图" class="">
+                        <img src="http://mallpcdn.masadora.net/532832754cf029b059f235442e15234904500855/000346696_01.jpg!wm1480t" action="切换封面图" class="">
+                        <img src="http://mallpcdn.masadora.net/62fc4c5602bc496f4b3846251a3b362334decb34/000346703_01.jpg!wm1480t" action="切换封面图" class="">
+                        <img src="http://mallpcdn.masadora.net/4c47acd47b89b18eba54bdc695f881895e013aac/000346718_01.jpg!wm1480t" action="切换封面图" class="">
+                        <img src="http://mallpcdn.masadora.net/419c899872b56ad02c2e9056385c0d1018bac04f/000346726_01.jpg!wm1480t" action="切换封面图" class="">
+                    </div>
+                  </div>
+                </el-col>
+                <!-- 最大的封面图 -->
+                <el-col :span="13">
+                  <div class="cover-box">
+                    <img id="item-cover" src="http://mallpcdn.masadora.net/b6234363de8080f630e985f561624beafdeb6e3d/g48374_01.jpg!wm1480t">
+                  </div>
+                </el-col>
+
+                <!-- 物品信息栏目 -->
+                <el-col :span="8">
+                  <div class="info-box">
+                      <ul class="info">
+                        <li>
+                          <h1>火影忍者 疾风传 迷你挂画</h1>
+                        </li>
+                        <li>
+                          <p>NARUTO-ナルト- 疾風伝 ミニタペストリー 6種</p>
+                        </li>
+
+                        <li>
+                          <span class="tag">预售</span>
+                          <span class="tag">跨境购</span>
+                        </li>
+
+                        <li>
+                          <span class="item-attr">原价</span>
+                          <b class="origin-price">65元</b>
+                        </li>
+                        <li>
+                          <span class="item-attr">现价</span>
+                          <b class="current-price">165元</b>
+                        </li>
+                        <el-divider></el-divider>
+                        <li>
+                          <span class="item-attr">状态</span>
+                          <span class="item-attr">预售中</span>
+                        </li>
+                        <li>
+                          <span class="item-attr">说明</span>
+                          <span class="item-attr">所选商品为全款预售商品，预计 2020 年 3 月内发售</span>
+                        </li>
+
+                        <li>
+                          <div>
+                            <span class="item-attr">规格</span>
+                          </div>
+                          <div class="select-box">
+                            <el-button size="mini" round>鸣人</el-button>
+                            <el-button size="mini" round>佐助</el-button>
+                            <el-button size="mini" round>樱</el-button>
+                            <el-button size="mini" round>鸣人2</el-button>
+                            <el-button size="mini" round>佐助2</el-button>
+                            <el-button size="mini" round>樱2</el-button>
+                          </div>
+                        </li>
+
+                        <li>
+                          <span class="item-attr">数量</span>
+                          <el-input-number class="number-input" size="mini" ></el-input-number>
+                        </li>
+                      </ul>
+
+                      <ul class="action-box"> 
+                        <li>
+                            <el-button round>加入购物车</el-button>
+                            <el-button type="danger" round>立即购买</el-button>
+                        </li>
+
+                        </li>
+                        <el-divider></el-divider>
+                        <li>
+                        
+                        <li>
+                          <i class="el-icon-star-on"></i>
+                          <i class="el-icon-star-off"></i>
+                          <i class="el-icon-share"></i>
+                        </li>
+                      </ul>
+                  </div>
+                </el-col>
+
+              </el-row>
+            </div>
+
+            <div class="buttom-area">
+              <!-- 广告/推荐栏 -->
+              <div class="recommend-box">
+                <el-tabs>
+                  <el-tab-pane>
+                      <div slot="label" class="rec-tag">商品推荐</div>
+                      <div class="rec-detail">
+                          <a href="http://help.masadora.jp/51" title="便携买谷小程序">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20190620/l2k2ov19cb6za73zefyocn7tcir5hw0s.jpg">
+                          </a>
+                          <a href="http://topic.masadora.net/191014/lantis.htm" title="Lantis x 魔法集市官方贩售专区">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20191122/oke7rj49ztcbwmuem5wxrp928q554shy.png">
+                          </a>
+                          <a href="http://topic.masadora.net/190510/cygames.htm" title="Cygames官方贩售专区">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20190719/vzcawbmovaet7rwz1l0iz0t196cd4suu.png">
+                          </a>
+                          <a href="http://note.masadora.net/#/p/46244" title="DLsite点数贩售服务登陆魔法集市!!!">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20190719/5o72fm5ocefftn7gq8i2dh5ec4d2wmqb.png">
+                          </a>
+                          <a href="http://topic.masadora.net/190402/ponycanyon.htm" title="PONY CANYON×魔法集市官方合作周边贩售">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20190719/tpm7j89sx3276kgutmg2vahz82764w0a.png">
+                          </a>
+                          <a href="http://www.masadora.jp/singleTopic/dmm.htm" title="DMM点数贩售服务已登录魔法集市">
+                            <img src="http://cdn.masadora.net/self_mall/images/product/20190719/pae1kruedeadkllwramil1mhgxpx9vr3.png">
+                          </a>
+                      </div>
+                  </el-tab-pane>
+                </el-tabs>
+              </div>
+              <!-- 商品详情 -->
+              <div class="item-detail">
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                  <!-- 大图 -->
+                  <el-tab-pane>
+                    <div slot="label" class="tag-name">商品详情</div>
+                    <div class="content-box">
+                      <p>
+                        <img src="http://mallpcdn.masadora.net/3646fce39169d99ab683fefcfa01cedafc195eb5/g48381_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/f061db5d847b6a67d85dfe0386fecc0dfc1df1a1/000346798_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/1edd1448da17696e280bc593e256979d87454c43/000346801_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/5a238fea3c4370c8240baae7912d23f25fa5c36b/000346818_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/31c3fc43dc1d7d9f5e2ce907c0081128158f20c7/000346825_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/1fe2e348e10867c26ed24b528fc9b9bf457b834e/000346833_01.jpg!w1380t">
+                        <img src="http://mallpcdn.masadora.net/d3eec2e5588c74590128718326131840c5c77b0a/000346849_01.jpg!w1380t">
+                      </p>
+                      <img src="http://masadora-js.masadora.net/masadora_omega/static/images/view-good-buy-notice-v1@2x.jpg">
+                    </div>
+                  </el-tab-pane>
+                  <el-tab-pane>
+                    <!-- 商品参数 -->
+                    <div slot="label" class="tag-name">参数规格</div>
+                    <div class="parameter-box">
+                        <el-table
+                          :data="tableData"
+                          :row-class-name="tableRowClassName">
+                          <el-table-column
+                            prop="attr"
+                            width="325">
+                          </el-table-column>
+                          <el-table-column
+                            prop="value"
+                            width="325">
+                          </el-table-column>
+                        </el-table>
+                    </div>
+                  </el-tab-pane>
+                </el-tabs>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <script src="../js/item.js"></script>
+</body>
+</html>
+
